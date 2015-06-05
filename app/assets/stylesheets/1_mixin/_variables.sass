@@ -1,0 +1,168 @@
+body
+  -webkit-font-smoothing: antialiased
+  // -webkit-text-stroke-width: 0.2px
+  text-rendering: optimizeLegibility
+  box-sizing: border-box
+  font-family: $regular
+
+// ------------------------------------
+//   Color
+// ------------------------------------
+
+$color__link: black
+$color__link--hover: black
+
+$color--primary: #18a29e
+
+$color--green: #009245
+$color--blue: #1f81d4
+$color--aqua: #26bfff
+$color--orange: #ff5526
+$color--pink: #ed1e79
+$color--gray: #999999
+
+
+// ------------------------------------
+//   Responsive
+// ------------------------------------
+
+
+$phone_2: "(max-width: 321px)"
+$phone: "(max-width: 750px)"
+$desktop: "(min-width: 751px)"
+$tablet-portrait: "(max-width: 768px)"
+$tablet-desktop: "(max-width: 992px)"
+$large-desktop: "(min-width: 1200px)"
+$super-desktop: "(min-width: 1800px)"
+
+$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)"
+$retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
+
+=respond-to($media)
+  @media #{$media}
+    @content
+
+// ------------------------------------
+//   Responsive Hidden
+// ------------------------------------
+
+.hidden-xs
+  display: inline
+.visible-xs
+  display: none
+
+.br-sp--add
+  display: none
+
++respond-to($phone)
+  .br-sp
+    display: none
+  .br-sp--add
+    display: block
+  img
+    max-width: 100%
+  *
+    box-sizing: border-box
+
+  .hidden-xs
+    display: none
+  .visible-xs
+    display: inline
+
+// ------------------------------------
+//   Font
+// ------------------------------------
+
+=fontsize($font-size)
+  font-size: $font-size + px
+  font-size: fz($font-size) + rem
+  -webkit-font-smoothing: antialiased
+  // -webkit-text-stroke-width: 0.2px
+  text-rendering: optimizeLegibility
+
+=linkColor($color)
+  &:link, &:visited, &:hover, &:focus, &:active
+    color: $color
+
+=overflowEllipsis
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+// ------------------------------------
+//   Image
+// ------------------------------------
+
+=backgroundImage($image)
+  width: image-width($image)
+  height: image-height($image)
+  background: image-url($image) no-repeat center
+
+// ------------------------------------
+//   Other
+// ------------------------------------
+
+
+=pseudoElm($top: initial, $right: initial, $bottom: initial, $left: initial)
+  display: block
+  position: absolute
+  content: ''
+  top: $top
+  left: $left
+  right: $right
+  bottom: $bottom
+
+=placeholderColor($color)
+  &:-moz-placeholder
+    color: $color
+  &:-webkit-input-placeholder
+    color: $color
+
+
+=placeholderColor($color)
+  &:-moz-placeholder
+    color: $color
+  &:-webkit-input-placeholder
+    color: $color
+
+=clearfix
+  *zoom: 1
+  &:before,
+  &:after
+    display: table
+    content: ''
+  &:after
+    clear: both
+
+=border-radius($radius)
+  -webkit-border-radius: $radius + px
+  -moz-border-radius:    $radius + px
+  border-radius:         $radius + px
+
+=box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing:    border-box
+  box-sizing:         border-box
+  // *behavior: url('../js/boxsizing.htc')
+
+=box-shadow($properties)
+  -webkit-box-shadow: $properties
+  -moz-box-shadow:    $properties
+  box-shadow:         $properties
+
+
+=transition($properties)
+  -webkit-transition: $properties
+  -moz-transition:    $properties
+  -o-transition:      $properties
+  transition:         $properties
+  -webkit-backface-visibility: hidden
+
+=transform($properties)
+  -webkit-transform: $properties
+  -moz-transform:    $properties
+  -ms-transform:     $properties
+  -o-transform:      $properties
+  transform:         $properties
+
+
