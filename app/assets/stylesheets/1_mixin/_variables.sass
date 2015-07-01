@@ -22,12 +22,11 @@ $color--pink: #ed1e79
 $color--gray: #999999
 
 
-// ------------------------------------
-//   Responsive
-// ------------------------------------
 
+// /*------------------------------------*\
+//  *    responsive
+//  *\*------------------------------------
 
-$phone_2: "(max-width: 321px)"
 $phone: "(max-width: 750px)"
 $desktop: "(min-width: 751px)"
 $tablet-portrait: "(max-width: 768px)"
@@ -42,9 +41,6 @@ $retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
   @media #{$media}
     @content
 
-// ------------------------------------
-//   Responsive Hidden
-// ------------------------------------
 
 .hidden-xs
   display: inline
@@ -69,9 +65,13 @@ $retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
   .visible-xs
     display: inline
 
-// ------------------------------------
-//   Font
-// ------------------------------------
+
+
+
+// /*------------------------------------*\
+//  *    font
+//  *\*------------------------------------
+
 
 =fontsize($font-size)
   font-size: $font-size + px
@@ -89,80 +89,50 @@ $retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
   overflow: hidden
   text-overflow: ellipsis
 
-// ------------------------------------
-//   Image
-// ------------------------------------
+$base-font-size: 12
+
+=linkColor($color)
+  &:link, &:visited, &:hover, &:focus, &:active
+    color: $color
+
+=overflowEllipsis
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+@function fz($size, $base: $base-font-size)
+  @return $size / $base
+
+
+// /*------------------------------------*\
+//  *    image
+//  *\*------------------------------------
+
+=backgroundSizePolyfill($prop: cover)
+  background-size: $prop
+  -ms-behavior: url(/bower_components/background-size-polyfill/backgroundsize.min.htc)
 
 =backgroundImage($image)
   width: image-width($image)
   height: image-height($image)
   background: image-url($image) no-repeat center
 
+// $map: sprite-map("../img/slideshow/index/picts/*.png");
+// $map_url: sprite-url($map);
+=sprite_img($map, $name, $map_url, $max_width, $device_pixel_ratio: 1)
+  background-image: $map_url
+  background-repeat: no-repeat
+  display: block
+  height: image-height(sprite-file($map, $name)) / $device_pixel_ratio
+  width: image-width(sprite-file($map, $name)) / $device_pixel_ratio
+  $ypos: round(nth(sprite-position($map, $name), 2))
+  background-position: 0 $ypos
+  +background-size($max_width auto)
+
+
 // ------------------------------------
 //   Other
 // ------------------------------------
 
-
-=pseudoElm($top: initial, $right: initial, $bottom: initial, $left: initial)
-  display: block
-  position: absolute
-  content: ''
-  top: $top
-  left: $left
-  right: $right
-  bottom: $bottom
-
-=placeholderColor($color)
-  &:-moz-placeholder
-    color: $color
-  &:-webkit-input-placeholder
-    color: $color
-
-
-=placeholderColor($color)
-  &:-moz-placeholder
-    color: $color
-  &:-webkit-input-placeholder
-    color: $color
-
-=clearfix
-  *zoom: 1
-  &:before,
-  &:after
-    display: table
-    content: ''
-  &:after
-    clear: both
-
-=border-radius($radius)
-  -webkit-border-radius: $radius + px
-  -moz-border-radius:    $radius + px
-  border-radius:         $radius + px
-
-=box-sizing
-  -webkit-box-sizing: border-box
-  -moz-box-sizing:    border-box
-  box-sizing:         border-box
-  // *behavior: url('../js/boxsizing.htc')
-
-=box-shadow($properties)
-  -webkit-box-shadow: $properties
-  -moz-box-shadow:    $properties
-  box-shadow:         $properties
-
-
-=transition($properties)
-  -webkit-transition: $properties
-  -moz-transition:    $properties
-  -o-transition:      $properties
-  transition:         $properties
-  -webkit-backface-visibility: hidden
-
-=transform($properties)
-  -webkit-transform: $properties
-  -moz-transform:    $properties
-  -ms-transform:     $properties
-  -o-transform:      $properties
-  transform:         $properties
-
-
+.clear
+  clear: both

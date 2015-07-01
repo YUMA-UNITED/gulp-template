@@ -31,6 +31,9 @@ body {
 
 .br-sp--add {
   display: none; }
+.clear {
+  clear: both; }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -364,9 +367,9 @@ body {
 
 body {
   font-family: "Noto Sans Japanese Regular", "HiraKakuProN-W3", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-  font-size: 14px;
-  font-size: fz(14)rem;
-  font-size: fz(14)rem;
+  font-size: 12px;
+  font-size: 16px;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   color: #000;
@@ -382,7 +385,8 @@ p {
   line-height: 1.5; }
 
 img {
-  display: block; }
+  display: block;
+  max-width: 100%; }
 
 footer {
   bottom: 0; }
