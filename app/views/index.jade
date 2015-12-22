@@ -1,9 +1,19 @@
-extends layouts/_default.jade
+extends layouts/_index.jade
 
-block vars
+block mainVars
+  - metas = {}
+  - metas.title = 'Title'
+  - var subtitle = 'Subtitle'
+  - metas.description = 'description'
+  - metas.keywords = 'keyword1,keyword2'
+  - metas.sitetype = 'website'
+  - metas.url = ''
+  - metas.bodyname = 'index'
+
+block append meta
+  +meta(metas)
+  include layouts/inc/_inc_meta_facebook
+  +inc_meta_facebook(metas)
 
 block content
-  .container
-    .row
-      .col.s12
-        p コンテンツです。
+  p contents

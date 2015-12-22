@@ -1,0 +1,8 @@
+mixin inc_meta_facebook(metas)
+  meta(property="og:title", content="#{subtitle} | Title" )
+  meta(property="og:type", content=metas.sitetype)
+  meta(property="og:url", content="http://yourdomain.com#{metas.url}")
+  meta(property="og:image", content="http://yourdomain.com/assets/images/icon/ogp.png")
+  meta(property="og:site_name", content="Title")
+  meta(property="og:description", content=metas.description)
+  //- meta(property="fb:app_id", content="任意のID")

@@ -15,7 +15,6 @@ gulp.task 'css', ->
     .pipe plumber(errorHandler: notify.onError(errorMessage))
     .pipe sass('sourcemap=none': true)
     .pipe please(
-      minifier: false
       fallbacks: autoprefixer: 'last 2 versions'
     )
     .pipe gulp.dest "#{config.path.dest.css}"

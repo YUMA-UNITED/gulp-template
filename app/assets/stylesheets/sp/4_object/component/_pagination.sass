@@ -1,0 +1,46 @@
+.pagination-box
+  text-align: center
+  .pagination
+    display: inline-block
+    height: 80px
+    padding: 30px 0 0
+    text-align: center
+    margin: 0 0 40px
+    span.page
+      background: #fff
+      +border-radius(3px)
+      font-weight: $regular
+      display: block
+      float: left
+      margin: 0 10px
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)
+      a
+        color: $black
+        width: 50px
+        height: 50px
+        display: block
+        padding: 14px 0 0
+      &.current
+        background: #E6E6E6
+        +vertical-align
+        padding: 14px 0 0
+        width: 50px
+        height: 50px
+      &.gap
+        background: none
+        box-shadow: none
+        padding: 9px 0 0
+    .next,
+    .last,
+    .prev,
+    .first
+      display: none
+      width: 50px
+      height: 50px
+      // display: block
+      float: left
+      margin: 0 3px
+      a
+        color: $black
+        font-weight: $regular
+        +vertical-align

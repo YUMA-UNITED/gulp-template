@@ -1,0 +1,23 @@
+.breadcrumb
+  height: 30px
+  width: 100%
+  background-color: #2B2B2D
+  padding: 0 15px
+  p
+    font-size: 12px
+    line-height: 30px
+    display: block
+    color: #fff
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    font-weight: $light
+    a
+      font-size: 12px
+      line-height: 30px
+      font-weight: $light
+      color: #fff
+      &:after
+        content: ' > '
+.breadcrumb_my_page,.breadcrumb_my_setting
+  background-color: $pink

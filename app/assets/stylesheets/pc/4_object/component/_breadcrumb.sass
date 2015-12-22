@@ -1,0 +1,38 @@
+.breadcrumb_area
+  padding: 0 5%
+  width: 100%
+  background-color: #2B2B2D
+  margin: 0 auto
+  +flexbox
+  height: 60px
+  .breadcrumb
+    +flex(1)
+    p
+      font-size: 14px
+      line-height: 60px
+      display: block
+      color: #fff
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      font-weight: $light
+      a
+        font-size: 14px
+        line-height: 60px
+        font-weight: $light
+        color: #fff
+        &:after
+          content: ' > '
+  .article_tags
+    +flex(1)
+    p
+      font-size: 13px
+      line-height: 60px
+      text-align: right
+      a
+        font-size: 13px
+        line-height: 60px
+        font-weight: $bold
+        text-decoration: underline
+        color: #fff
+        padding-left: 10px
