@@ -38,7 +38,11 @@ html(lang='ja')
 
   body(class=metas.bodyname)
 
+    include inc/_header
+
     block index
+
+    include ../shared/_footer
 
     <!--[if (gte IE 10)|!(IE)]><!-->
     script(src='/assets/javascripts/after-load.js')
