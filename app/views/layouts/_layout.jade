@@ -1,0 +1,37 @@
+block mainVars
+
+doctype
+html(lang='ja')
+  head(prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#')
+    meta(charset="utf-8")
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no')
+    block robots
+      meta(name='robots', content='index,follow,noarchive')
+      meta(name="googlebot", content="index,follow,noarchive")
+
+    block meta
+      mixin meta(metas)
+        title
+          if subtitle
+            = subtitle
+            | ｜
+          = title
+          | Title
+        meta(name="description", content=metas.description)
+        meta(name="keywords", content=metas.keywords)
+
+    block vars
+
+    include inc/_inc_favicon
+    include inc/_inc_stylesheet
+
+  body(class=metas.bodyname)
+
+    include ../shared/_header
+
+    block content
+
+    include ../shared/_footer
+
+    script(type='text/javascript', src="://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    script(src='/assets/javascripts/application.js')
