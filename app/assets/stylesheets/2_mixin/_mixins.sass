@@ -1,16 +1,3 @@
-$phone: "(max-width: 750px)"
-$tablet-portrait: "(max-width: 768px)"
-$tablet-desktop: "(max-width: 992px)"
-$large-desktop: "(min-width: 1200px)"
-$super-desktop: "(min-width: 1800px)"
-
-$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)"
-$retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
-
-=respond-to($media)
-  @media #{$media}
-    @content
-
 =clearfix
   *zoom: 1
   &:before,
